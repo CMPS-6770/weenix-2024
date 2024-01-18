@@ -3,7 +3,7 @@
 This file contains quick instructions for getting Weenix to run on
 Redhat-derived or Debian-derived Linux flavors. If you're using a virtual machine with the Weenix Vagrantfile, the dependencies should be installed automatically when the machine is provisioned.
 
-See also [Getting Started with Weenix](https://github.com/brown-cs1690/handout/wiki/Getting-Started-with-Weenix) for more thorough documentation.
+See also [Getting Started with Weenix](https://github.com/CMPS-6770/handout-wiki/wiki/Getting-Started-with-Weenix) for more thorough documentation.
 
 1. Download and install dependencies.
 

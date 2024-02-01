@@ -3,7 +3,7 @@
 all: all_kernel all_user
 
 all_kernel:
-	@ cd kernel && $(MAKE) all
+	@ cd kernel && $(MAKE) all cscope
 
 all_user:
 	@ cd user && $(MAKE) all

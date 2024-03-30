@@ -56,7 +56,7 @@ typedef struct vnode_ops
     /*
      * Implementations should supply an mobj through the "ret"
      * argument (not by setting vma->vma_obj). If for any reason
-     * this cannot be done an appropriate error code should be
+     * this cannot be done, an appropriate error code should be
      * returned instead.
      */
     long (*mmap)(struct vnode *file, struct mobj **ret);

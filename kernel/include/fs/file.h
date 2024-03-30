@@ -21,7 +21,7 @@ typedef struct file
     /*
      * The mode in which this file was opened. This is a mask of the flags
      * FMODE_READ, FMODE_WRITE, and FMODE_APPEND. It is set when the file
-     * is first opened, and use to restrict the operations that can be
+     * is first opened, and used to restrict the operations that can be
      * performed on the underlying vnode.
      */
     unsigned int f_mode;

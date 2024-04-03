@@ -181,8 +181,8 @@ static const char *namev_tokenize(const char **search, size_t *len)
  *  - "tmp/..//." ==> res_vnode = base, name = ".", namelen = 1
  *  - "/dev/null" ==> rev_vnode = vnode for /dev, name = "null", namelen = 4
  * For more examples of expected behavior, you can try out the command line
- * utilities `dirname` and `basename` on your virtual machine or a Brown
- * department machine.
+ * utilities `dirname` and `basename` on your virtual machine or on any
+ * linux machine.
  */
 long namev_dir(vnode_t *base, const char *path, vnode_t **res_vnode,
                const char **name, size_t *namelen)

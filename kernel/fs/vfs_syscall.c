@@ -36,7 +36,7 @@ ssize_t do_read(int fd, void *buf, size_t len)
  *
  * Return the number of bytes written on success, or:
  *  - EBADF: fd is invalid or is not open for writing
- *  - Propagate errors from the vnode operation read
+ *  - Propagate errors from the vnode operation write
  *
  * Hints:
  *  - Check out `man 2 write` for details about how to handle the FMODE_APPEND

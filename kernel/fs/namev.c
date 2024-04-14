@@ -238,7 +238,7 @@ long namev_resolve(vnode_t *base, const char *path, vnode_t **res_vnode)
  *
  * Files can be uniquely identified within a file system by their
  * inode numbers. */
-int lookup_name(vnode_t *dir, vnode_t *entry, char *buf, size_t size)
+long lookup_name(vnode_t *dir, vnode_t *entry, char *buf, size_t size)
 {
     NOT_YET_IMPLEMENTED("GETCWD: lookup_name");
     return -ENOENT;

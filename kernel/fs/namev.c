@@ -246,7 +246,7 @@ long lookup_name(vnode_t *dir, vnode_t *entry, char *buf, size_t size)
 
 /* Used to find the absolute path of the directory 'dir'. Since
  * directories cannot have more than one link there is always
- * a unique solution. The path is writen to the given buffer.
+ * a unique solution. The path is written to the given buffer.
  * On success 0 is returned. On error this function returns a
  * negative error code. See the man page for getcwd(3) for
  * possible errors. Even if an error code is returned the buffer

@@ -182,7 +182,7 @@ long s5fs_mount(fs_t *fs)
  *     - VNODE_TO_S5NODE to obtain the s5_node_t with the inode corresponding
  *       to the provided vnode
  *     - FS_TO_S5FS to obtain the s5fs object
- *     - S5_INODE_BLOCK(vn->v_vno) to determine the block number of the block that
+ *     - S5_INODE_BLOCK(vn->vn_vno) to determine the block number of the block that
  *       contains the inode info
  *     - s5_get_disk_block and s5_release_disk_block to handle the disk block
  *     - S5_INODE_OFFSET to find the desired inode within the disk block

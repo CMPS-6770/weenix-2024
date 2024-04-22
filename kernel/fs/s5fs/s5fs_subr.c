@@ -117,7 +117,7 @@ static inline void s5_release_file_block(pframe_t **pfp)
  *    direct block dirty the inode? What about allocating the indirect block?
  *    Finally, what about allocating a block pointed to by the indirect block?
  *  - Cases to consider:
- *    1) file_blocknum < S_NDIRECT_BLOCKS
+ *    1) file_blocknum < S5_NDIRECT_BLOCKS
  *    2) Indirect block is not allocated but alloc is set. Be careful not to
  *       leak a block in an error case!
  *    3) Indirect block is allocated. The desired block may be sparse, and you

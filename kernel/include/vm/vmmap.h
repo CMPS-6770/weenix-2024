@@ -22,7 +22,7 @@ typedef struct vmmap
 typedef struct vmarea
 {
     size_t vma_start; /* [starting vfn, */
-    size_t vma_end;   /*  ending vfn) */
+    size_t vma_end;   /*  ending vfn) note: vma_end is exclusive */
     size_t vma_off;   /* offset from beginning of vma_obj in pages */
                       /* the reason this field is necessary is that 
                          when files are mmap'ed, it doesn't have 

@@ -424,8 +424,8 @@ static long s5fs_unlink(vnode_t *dir, const char *name, size_t namelen)
  *		   b) Check if new-name is a directory
  *		   c) Remove the previously existing entry for new name using s5_remove_dirent
  *		   d) Link the new direct using s5_link
- * 	3) If there is no entry for newname, use s5_link to add a link to the old node at new name
- *	4) Use s5_remove_dirent to remove old name’s entry in olddir
+ * 	  3) If there is no entry for newname, use s5_link to add a link to the old node at new name
+ *	  4) Use s5_remove_dirent to remove old name’s entry in olddir
  */
 static long s5fs_rename(vnode_t *olddir, const char *oldname, size_t oldnamelen,
                         vnode_t *newdir, const char *newname,

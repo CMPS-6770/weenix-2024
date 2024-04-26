@@ -517,7 +517,7 @@ static long s5fs_readdir(vnode_t *vnode, size_t pos, struct dirent *d)
  *  vnode - The vnode of the file in question
  *  ss    - Caller-allocated stat_t struct that must be initialized on success
  *
- * This function should not fail.
+ * Return 0 on success. This function should not fail.
  *
  * Hint:
  *  - Initialize st_blocks using s5_inode_blocks.

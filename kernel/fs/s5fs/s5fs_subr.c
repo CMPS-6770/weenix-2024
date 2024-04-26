@@ -486,7 +486,7 @@ void s5_replace_dirent(s5_node_t *sn, const char *name, size_t namelen,
  *  child   - The s5_node holding the inode which the new entry should represent
  *
  * Return 0 on success, or:
- *  - EEXIST: The directory entry already exists
+ *  - EEXIST: A directory entry with this name already exists
  *  - Propagate errors from s5_write_file
  *
  * Hints:

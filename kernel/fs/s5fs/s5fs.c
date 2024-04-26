@@ -399,15 +399,18 @@ static long s5fs_unlink(vnode_t *dir, const char *name, size_t namelen)
  *  - Propagate errors from s5_find_dirent and s5_link
  *
  * Steps:
- * 1) Use s5_find_dirent and vget_locked to obtain the vnode corresponding to old name.
+ * 1) Use s5_find_dirent and vget_locked to obtain the vnode corresponding to 
+ *    old name.
  * 2) If newdir already contains an entry for newname:
- *      a) Compare node numbers and do nothing if old name and new name refer to the same inode
+ *      a) Compare node numbers and do nothing if old name and new name refer to
+ *         the same inode
  *	    b) Check if new-name is a directory
- *	    c) Remove the previously existing entry for new name using s5_remove_dirent
+ *	    c) Remove the previously existing entry for new name using 
+ *         s5_remove_dirent
  *	    d) Link the new direct using s5_link
- * 3) If there is no entry for newname, use s5_link to add a link to the old node at new name
+ * 3) If there is no entry for newname, use s5_link to add a link to the old
+ *    node at new name
  * 4) Use s5_remove_dirent to remove old name’s entry in olddir
- *
  * 
  * Hints:
  *  - olddir and newdir should be locked on entry and not unlocked during the
@@ -416,15 +419,20 @@ static long s5fs_unlink(vnode_t *dir, const char *name, size_t namelen)
  *  - Be careful with locking! Because you are making changes to the vnodes,
  *    you should always be using vget_locked and vput_locked. Be sure to clean
  *    up properly in error/special cases.
- *  - You DO NOT need to support renaming of directories in Weenix. If you were to support this
- *    in the s5fs layer (which is not extra credit), you can use the following routine:
- *	  1) Use s5_find_dirent and vget_locked to obtain the vnode corresponding to old name.
+ *  - You DO NOT need to support renaming of directories in Weenix. If you were
+ *    to support this in the s5fs layer (which is not extra credit), you can use
+ *    the following routine:
+ *	  1) Use s5_find_dirent and vget_locked to obtain the vnode corresponding to
+ *       old name.
  *	  2) If newer already contains an entry for newname:
- *		   a) Compare node numbers and do nothing if old name and new name refer to the same inode
+ *		   a) Compare node numbers and do nothing if old name and new name refer
+ *            to the same inode
  *		   b) Check if new-name is a directory
- *		   c) Remove the previously existing entry for new name using s5_remove_dirent
+ *		   c) Remove the previously existing entry for new name using 
+ *            s5_remove_dirent
  *		   d) Link the new direct using s5_link
- * 	  3) If there is no entry for newname, use s5_link to add a link to the old node at new name
+ * 	  3) If there is no entry for newname, use s5_link to add a link to the old
+ *       node at new name
  *	  4) Use s5_remove_dirent to remove old name’s entry in olddir
  */
 static long s5fs_rename(vnode_t *olddir, const char *oldname, size_t oldnamelen,

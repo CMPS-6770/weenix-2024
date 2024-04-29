@@ -4,8 +4,8 @@
 
 #include "util/list.h"
 
-#define VMMAP_DIR_LOHI 1
-#define VMMAP_DIR_HILO 2
+#define VMMAP_DIR_LOHI 1 /* search direction, search vmmap from lo to hi */
+#define VMMAP_DIR_HILO 2 /* search direction, search vmmap from hi to lo */
 
 struct mobj;
 struct proc;

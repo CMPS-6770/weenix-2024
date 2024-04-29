@@ -76,7 +76,8 @@ void vmmap_insert(vmmap_t *map, vmarea_t *new_vma)
 
 /*
  * Find a contiguous range of free virtual pages of length npages in the given
- * address space. Returns starting page number for the range, without altering the map.
+ * address space. Returns starting page number for the range, without altering 
+ * the map.
  * Return -1 if no such range exists.
  *
  * Your algorithm should be first fit. If dir is
@@ -94,8 +95,9 @@ ssize_t vmmap_find_range(vmmap_t *map, size_t npages, int dir)
 }
 
 /*
- * Return the vm_area that vfn (a page number) lies in. Scan the address space looking
- * for a vma whose range covers vfn. If the page is unmapped, return NULL.
+ * Return the vm_area that vfn (a page number) lies in. Scan the address space 
+ * looking for a vma whose range covers vfn. If the page is unmapped, return
+ * NULL.
  */
 vmarea_t *vmmap_lookup(vmmap_t *map, size_t vfn)
 {
@@ -258,8 +260,8 @@ long vmmap_read(vmmap_t *map, const void *vaddr, void *buf, size_t count)
  * 
  * Hints:
  *  1) Find the vmareas to write to.
- *  2) Find the correct pframes within those areas that contain the virtual addresses
- *     that you want to write data to.
+ *  2) Find the correct pframes within those areas that contain the virtual 
+ *     addresses that you want to write data to.
  *  3) Write to the pframes, copying data from buf.
  *  4) You do not need check permissions of the areas you use.
  *  5) Assume/assert that all areas exist.

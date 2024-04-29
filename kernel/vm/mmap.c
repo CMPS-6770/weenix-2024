@@ -14,7 +14,8 @@
  * process's address space. Supports the following flags: MAP_SHARED,
  * MAP_PRIVATE, MAP_FIXED, and MAP_ANON.
  *
- *  ret - If provided, on success, *ret must point to the start of the mapped area
+ *  ret - If provided, on success, *ret must point to the start of the mapped 
+ *        area
  *
  * Return 0 on success, or:
  *  - EACCES: 

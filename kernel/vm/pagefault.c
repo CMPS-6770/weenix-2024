@@ -18,9 +18,9 @@
  *
  * Implementation details:
  *  1) Find the vmarea that contains vaddr, if it exists.
- *  2) Check the vmarea's protections (see the vmarea_t struct) against the 'cause' of
- *     the pagefault. For example, error out if the fault has cause write and we don't
- *     have write permission in the area. Keep in mind:
+ *  2) Check the vmarea's protections (see the vmarea_t struct) against the 
+ *     'cause' of the pagefault. For example, error out if the fault has cause
+ *     write and we don't have write permission in the area. Keep in mind:   
  *     a) You can assume that FAULT_USER is always specified.
  *     b) If neither FAULT_WRITE nor FAULT_EXEC is specified, you may assume the
  *     fault was due to an attempted read.

@@ -263,7 +263,7 @@ long vmmap_read(vmmap_t *map, const void *vaddr, void *buf, size_t count)
  *  2) Find the correct pframes within those areas that contain the virtual 
  *     addresses that you want to write data to.
  *  3) Write to the pframes, copying data from buf.
- *  4) You do not need check permissions of the areas you use.
+ *  4) You do not need to check permissions of the areas you use.
  *  5) Assume/assert that all areas exist.
  *  6) Remember to dirty the pages that you write to. 
  * 

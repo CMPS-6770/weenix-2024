@@ -131,8 +131,8 @@ void vmmap_collapse(vmmap_t *map)
  *  1) vmarea is share-mapped, you don't need to do anything special. 
  *  2) vmarea is not share-mapped, time for shadow objects: 
  *     a) Create two shadow objects, one for map and one for the new vmmap you
- *        are constructing, both of which shadow the current vma_obj the vmarea
- *        being cloned. 
+ *        are constructing, both of which shadow the current vma_obj of the 
+ *        vmarea being cloned. 
  *     b) After creating the shadow objects, put the original vma_obj
  *     c) and insert the shadow objects into their respective vma's.
  *

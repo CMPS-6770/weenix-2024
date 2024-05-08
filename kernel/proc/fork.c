@@ -35,18 +35,20 @@ static uintptr_t fork_setup_stack(const regs_t *regs, void *kstack)
  * This function implements the fork(2) system call.
  *
  * TODO:
- * 1) Use proc_create() and kthread_clone() to set up a new process and thread. If
- *    either fails, perform any appropriate cleanup.
+ * 1) Use proc_create() and kthread_clone() to set up a new process and thread.
+ *    If either fails, perform any appropriate cleanup.
  * 2) Finish any initialization work for the new process and thread.
  * 3) Fix the values of the registers and the rest of the kthread's ctx. 
- *    Some registers can be accessed from the cloned kthread's context (see the context_t 
- *    and kthread_t structs for more details):
+ *    Some registers can be accessed from the cloned kthread's context (see the
+ *    context_t  and kthread_t structs for more details):
  *    a) We want the child process to also enter userland execution. 
- *       For this, the instruction pointer should point to userland_entry (see exec.c).
- *    b) Remember that the only difference between the parent and child processes 
- *       is the return value of fork(). This value is returned in the RAX register, 
- *       and the return value should be 0 for the child. The parent's return value would 
- *       be the process id of the newly created child process. 
+ *       For this, the instruction pointer should point to userland_entry (see
+ *       exec.c).
+ *    b) Remember that the only difference between the parent and child  
+ *       processes is the return value of fork(). This value is returned in the 
+ *       RAX register, and the return value should be 0 for the child. The  
+ *       parent's return value would be the process id of the newly created 
+ *       child process. 
  *    c) Before the process begins execution in userland_entry, 
  *       we need to push all registers onto the kernel stack of the kthread. 
  *       Use fork_setup_stack to do this, and set RSP accordingly. 

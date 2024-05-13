@@ -17,22 +17,23 @@
  *    'p_start_brk', which would mean that there is no heap yet/is empty.
  * 2) Growth of the 'p_brk' cannot overlap with/expand into an existing
  *    mapping. Use vmmap_is_range_empty() to help with this.
- * 3) 'p_brk' cannot go beyond the region of the address space allocated for use by
- *    userland (USER_MEM_HIGH)
- *
- * Before setting 'p_brk' to 'addr', you must account for all scenarios by comparing
- * the page numbers of addr, p_brk and p_start_brk as the vmarea that represents the heap
- * has page granularity. Think about the following sub-cases (note that the heap 
- * should always be represented by at most one vmarea):
- * 1) The heap needs to be created. What permissions and attributes does a process
- *    expect the heap to have?
+ * 3) 'p_brk' cannot go beyond the region of the address space allocated for use
+ *    by userland (USER_MEM_HIGH)
+ *    
+ * Before setting 'p_brk' to 'addr', you must account for all scenarios by 
+ * comparing the page numbers of addr, p_brk and p_start_brk as the vmarea that
+ * represents the heap has page granularity. Think about the following sub-cases
+ * (note that the heap should always be represented by at most one vmarea):
+ * 1) The heap needs to be created. What permissions and attributes does a 
+ *    process expect the heap to have?
  * 2) The heap already exists, so you need to modify its end appropriately.
  * 3) The heap needs to shrink.
  *
  * Beware of page alignment!:
  * 1) The starting break is not necessarily page aligned. Since the loader sets
- *    'p_start_brk' to be the end of the bss section, 'p_start_brk' should always be
- *    aligned up to start the dynamic region at the first page after bss_end.
+ *    'p_start_brk' to be the end of the bss section, 'p_start_brk' should
+ *     always be aligned up to start the dynamic region at the first page after
+ *     bss_end.
  * 2) vmareas only have page granularity, so you will need to take this
  *    into account when deciding how to set the mappings if p_brk or p_start_brk
  *    is not page aligned. The caller of do_brk() would be very disappointed if

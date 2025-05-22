@@ -6,9 +6,17 @@ ARCH      := x86-64
 CC        := gcc
 LD        := ld
 AR        := ar
-PYTHON    := python2
+PYTHON    := python3
 CSCOPE    := cscope
-MKRESCUE  := grub-mkrescue
+DISTRO := "$(shell lsb_release -is)"
+REDHATDISTRO := "Rocky"
+ifeq ($(DISTRO),$(REDHATDISTRO))
+    $(info Global.mk: Running on Red Hat Distro $(DISTRO), using grub2-mkrescue)
+    MKRESCUE  := grub2-mkrescue
+else
+    $(info Global.mk: Running on non Red Hat Distro $(DISTRO), using grub-mkrescue)
+    MKRESCUE := grub-mkrescue
+endif
 
 cflags.x86-64	:= -march=x86-64 -m64 -mno-red-zone -mcmodel=large -mno-sse3 -mno-ssse3 -mno-sse4.1 -mno-sse4.2 -mno-sse4 -mno-sse4a -mno-3dnow -mno-avx -mno-avx2
 cflags.common	:= -fno-pie -ffreestanding -fno-builtin -nostdinc -std=c99 -g3 -gdwarf-3 -fno-stack-protector -fsigned-char -Iinclude

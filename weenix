@@ -36,10 +36,11 @@ done
 
 QEMU=qemu-system-x86_64
 
-#if ! which $QEMU; then
+if ! which $QEMU > /dev/null 2>&1; then
 	#echo "Unable to find qemu." >&2
 	#exit 2
-#fi
+  QEMU-qemu-kvm
+fi
 # QEMU=qemu/build/x86_64-softmmu/qemu-system-x86_64
 
 QEMU_FLAGS="-k en-us -boot order=dca -device isa-debug-exit "
